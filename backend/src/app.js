@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const { errors } = require('celebrate');
 const routes = require('./routes');
 
 //criando aplicação
@@ -12,5 +13,6 @@ app.use(express.json());
 //Usando as rotas importadas
 app.use(routes);
 
-//Qual porta vai estar no navegador
-app.listen(3333);
+app.use(errors());
+
+module.exports = app;
